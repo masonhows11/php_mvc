@@ -1,0 +1,19 @@
+{
+  "name": "vendor_name/mini_mvc",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "mason",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "APP\\" :  "app/",
+      "Core\\":  "core/"
+    }
+  }
+}
