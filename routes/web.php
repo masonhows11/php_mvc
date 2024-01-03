@@ -14,9 +14,3 @@ Route::get('/posts',[\APP\Http\Controllers\PostController::class,'index']);
 Route::get('/create/post',[\APP\Http\Controllers\PostController::class,'create']);
 Route::post('/store/post',[\APP\Http\Controllers\PostController::class,'store']);
 Route::get('/delete/post/{id}',[\APP\Http\Controllers\PostController::class,'delete']);
-
-
-// echo CURRENT_ROUTE;
-//echo "<br/>";
-//global $routes;
-//print_r($routes);
