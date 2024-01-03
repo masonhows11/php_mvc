@@ -9,7 +9,7 @@ class Router
     private $current_route;
     private $method_name;
     private $routes;
-    private $params;
+    private $params = [];
 
     public function __construct()
     {
