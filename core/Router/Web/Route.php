@@ -14,7 +14,7 @@ class Route
         $controller = array_splice($controller,-1)[0];
         $method = $Context[1];
         global $routes;
-        array_push($routes['get'] , array('route' => $route , 'controller' => $controller, 'method' => $method));
+        array_push($routes['get'] , array('route' => trim($route,"/ ")  , 'controller' => $controller, 'method' => $method));
 
     }
 
@@ -24,7 +24,7 @@ class Route
         $controller = array_splice($controller,-1)[0];
         $method = $Context[1];
         global $routes;
-        array_push($routes['post'] , array('route' => $route , 'controller' => $controller, 'method' => $method));
+        array_push($routes['post'] , array('route' => trim($route,"/ ") , 'controller' => $controller, 'method' => $method));
     }
 
     public static function put($route, array $Context){
@@ -33,7 +33,7 @@ class Route
         $controller = array_splice($controller,-1)[0];
         $method = $Context[1];
         global $routes;
-        array_push($routes['put'] , array('route' => $route , 'controller' => $controller, 'method' => $method));
+        array_push($routes['put'] , array('route' => trim($route,"/ ") , 'controller' => $controller, 'method' => $method));
     }
 
     public static function delete($route, array $Context){
@@ -42,7 +42,7 @@ class Route
         $controller = array_splice($controller,-1)[0];
         $method = $Context[1];
         global $routes;
-        array_push($routes['delete'] , array('route' => $route , 'controller' => $controller, 'method' => $method));
+        array_push($routes['delete'] , array('route' => trim($route,"/ ") , 'controller' => $controller, 'method' => $method));
     }
 
 }
