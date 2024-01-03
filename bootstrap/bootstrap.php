@@ -7,8 +7,8 @@ require_once "../config/app.php";
 require_once "../routes/web.php";
 require_once "../routes/api.php";
 
-//var_dump(BASE_DIR);
-$router = new Core\Router\Router();
-$router->checkRoute();
+
+// $router = new Core\Router\Router();
+// $router->checkRoute();
 
 
