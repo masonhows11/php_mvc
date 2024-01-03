@@ -8,7 +8,7 @@ class HomeController extends Controller
 {
 
     public function index(){
-        echo 'home controller';
+        echo 'home controller' . PHP_EOL;
     }
 
 }

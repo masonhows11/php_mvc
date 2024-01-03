@@ -4,6 +4,8 @@
 namespace Core\Router;
 
 
+use ReflectionMethod;
+
 
 class Router
 {
@@ -39,46 +41,63 @@ class Router
 
     public function checkRoute()
     {
+        // var_dump(CURRENT_ROUTE);
+        // var_dump($this->routes);
         // for check method is post or get or put or delete
-        $reserved_routes = $this->routes[$this->getMethod()];
-        foreach ($reserved_routes as $route) {
-            $reservedRouteArray = explode('/', $route['route']);
-            if (sizeof($this->current_route) == sizeof($reservedRouteArray)) {
+       $reservedRoutes = $this->routes[$this->method_name];
+
+
+        foreach ($reservedRoutes as $reservedRoute) {
+
+            $reservedRouteArray = explode('/', $reservedRoute['route']);
+
+            if (sizeof($this->current_route) == sizeof($reservedRouteArray))
+            {
                 foreach ($reservedRouteArray as $key => $value) {
 
                     if ($this->current_route[$key] == $value) {
+
                         if (!empty($reservedRouteArray[$key + 1])) {
-                            if (substr($reservedRouteArray[$key + 1], 0, 1) == '{' && substr($reservedRouteArray[$key + 1], -1) == '}') {
+                            if (substr($reservedRouteArray[$key + 1], 0, 1) == '{'
+                                && substr($reservedRouteArray[$key + 1], -1) == '}') {
                                 array_push($this->params, $this->current_route[$key + 1]);
                             } else {
                                 $this->params = [];
                             }
-
                         }
-                    }
 
-                    $controller = "\APP\Http\Controllers\\".$route['controller'];
-                    $obj = new $controller;
-                    if(method_exists($obj,$route['method'])){
-                        try {
-                            $reflection = new \ReflectionMethod($controller, $route['method']);
-                            $parameter = $reflection->getNumberOfParameters();
-                            if($parameter <= count($this->params)){
-                                call_user_func_array([$obj,$route['method']],$this->params);
+                        $path = BASE_DIR . "/app/Http/Controllers/".$reservedRoute['controller'].".php";
+                        if(!file_exists($path)){
+                            echo $path;
+                        }
+
+                        $controller = "\APP\Http\Controllers\\" . $reservedRoute['controller'];
+                        $obj = new $controller;
+                        var_dump($obj);
+                        if (method_exists($obj, $reservedRoute['method'])) {
+                            try {
+                                $reflection = new ReflectionMethod($controller, $reservedRoute['method']);
+                                $parameter = $reflection->getNumberOfParameters();
+                                if ( $parameter <= count($this->params)) {
+                                    call_user_func_array([ $obj, $reservedRoute['method']], $this->params);
+                                }
+                            } catch (\ReflectionException $ex) {
+                                return $ex->getMessage();
                             }
-                        } catch (\ReflectionException $ex) {
-                           return $ex->getMessage();
                         }
+                        $this->result = true;
+
                     }
+
+
                 }
             }
-            $this->result = true;
+
         }
-        if(!$this->result){
+        if (!$this->result) {
             echo 'controller not found';
         }
     }
-
 
 
 }
