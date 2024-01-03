@@ -16,7 +16,7 @@ Route::post('/store/post',[\APP\Http\Controllers\PostController::class,'store'])
 Route::get('/delete/post/{id}',[\APP\Http\Controllers\PostController::class,'delete']);
 
 
-echo CURRENT_ROUTE;
-echo "<br/>";
-global $routes;
-print_r($routes);
+// echo CURRENT_ROUTE;
+//echo "<br/>";
+//global $routes;
+//print_r($routes);
