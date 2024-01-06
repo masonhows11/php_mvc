@@ -1,6 +1,8 @@
 <?php
-require_once "../vendor/autoload.php";
-require_once "../bootstrap/bootstrap.php";
+
+ include "../bootstrap/bootstrap.php";
+ 
+
 
 ////// 
 
@@ -14,4 +16,4 @@ require_once "../bootstrap/bootstrap.php";
 // for test composer autoload
 // use App\Core\Request;
 // echo $_SERVER['REQUEST_URI'] . "\n";
-// $req = new Request();
+// $req = new Request()
