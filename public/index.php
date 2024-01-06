@@ -6,3 +6,5 @@
 // ../ this mean return one step back in project path
 require_once "../vendor/autoload.php";
 require_once "../bootstrap/bootstrap.php";
+
+echo "hello php";
