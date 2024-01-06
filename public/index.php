@@ -7,4 +7,5 @@
 require_once "../vendor/autoload.php";
 require_once "../bootstrap/bootstrap.php";
 
-echo "hello you are in index.php";
+
+echo $_SERVER['REQUEST_URI'] . "\n";
