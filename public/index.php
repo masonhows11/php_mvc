@@ -1,10 +1,6 @@
 <?php
 
-use App\Utilities\Asset;
-
 include "../bootstrap/bootstrap.php";
-echo 'hello' . PHP_EOL;
-echo Asset::styles('app.css');
 
 //////
 // for add autoload php  for load all class & files
