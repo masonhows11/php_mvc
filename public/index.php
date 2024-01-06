@@ -4,6 +4,9 @@
  
 
 
+
+echo site_url("product/index");
+
 ////// 
 
 // for add autoload php  for load all class & files
