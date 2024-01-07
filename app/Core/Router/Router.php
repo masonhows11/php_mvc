@@ -27,16 +27,22 @@ class Router
             $current_route = Url::current_route();
 
             foreach ($this->routes as $route => $view) {
-                if($current_route == $route)
-                {
-                    include BASE_PATH .  "views/pages/$view";
-                    die();
-                }
+                if ($current_route == $route)
+                    $this->includeViewAndDie(BASE_PATH . "resources/views/pages/$view");
+                
             }
-        }catch (\Exception $ex){
+        } catch (\Exception $ex) {
 
             echo $ex->getMessage();
         }
 
     }
+
+
+    private function includeViewAndDie($viewPath)
+    {
+        include $viewPath;
+        die();
+    }
+
 }
