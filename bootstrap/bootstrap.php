@@ -12,3 +12,5 @@ $dotenv = Dotenv\Dotenv::createImmutable(BASE_PATH);
 $dotenv->load();
 
 include BASE_PATH . "/Helpers/helpers.php";
+
+$request = new  \App\Core\Request();
