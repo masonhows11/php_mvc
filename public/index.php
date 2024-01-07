@@ -9,3 +9,5 @@ include "../bootstrap/bootstrap.php";
 
 // $router = new Router();
 // $router->run();
+$req = new \App\Core\Request();
+var_dump($req->issetKey('name'));
