@@ -14,9 +14,10 @@ class Router
         public function __construct()
         {
             $this->routes = [
-                '/pages/page_one' => 'page_one.php',
-                '/pages/page_two' => 'page_two.php',
-                '/pages/page_three' => 'page_three.php',
+                '/' => 'home.php',
+                '/pages/page_one' => 'pages/page_one.php',
+                '/pages/page_two' => 'pages/page_two.php',
+                '/pages/page_three' => 'pages/page_three.php',
             ];
         }
 
@@ -28,7 +29,7 @@ class Router
 
                 foreach ($this->routes as $route => $view) {
                     if ($current_route == $route){
-                        $this->includeViewAndDie(BASE_PATH . "resources/views/pages/$view");
+                        $this->includeViewAndDie(BASE_PATH . "resources/views/$view");
                     }
                 }
                 header("HTTP/1.1 404 Not Found");
