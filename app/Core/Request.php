@@ -70,6 +70,11 @@ Class Request{
         return  isset($this->params[$key]);
     }
 
+    public function redirect($path)
+    {
+        header("Location: " . site_url($path));
+        die();
+    }
     
 
     
