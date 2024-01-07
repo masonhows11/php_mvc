@@ -15,4 +15,16 @@ include "../bootstrap/bootstrap.php";
 // $req = new Request()
 
 
+////
+$uri = $_SERVER['REQUEST_URI'];
+/// get route with query parameter
+$full_route = $uri;
+/// get route with out query parameter
+$simple_route = strtok($uri,'?');
+
+
+echo $full_route . PHP_EOL;
+echo "<br/>";
+echo $simple_route .PHP_EOL;
+
 
