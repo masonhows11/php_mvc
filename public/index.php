@@ -9,21 +9,16 @@ include "../bootstrap/bootstrap.php";
 
 
 
-Route::add(['get'],'/',function (){
+Route::add('get','/',function (){
     echo "welcome to home";
 });
-
-
 Route::add(['post'],'/store_post',function (){
     echo "store form";
 });
 
-
 Route::add(['get'],'/posts',function (){
     echo "list posts";
 });
-
-
 Route::add(['post'],'/update_post',function (){
     echo "update post";
 });
