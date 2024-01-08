@@ -15,6 +15,37 @@ class Route
 
     }
 
+    // get http method
+    public static function get($uri, $action = null)
+    {
+        self::add('get', $uri, $action = null);
+    }
+
+    // post http method
+    public static function post($uri, $action = null)
+    {
+        self::add('post', $uri, $action = null);
+    }
+
+    // put http method
+    public static function put($uri, $action = null)
+    {
+        self::add('put', $uri, $action = null);
+    }
+
+    // patch http method
+    public static function patch($uri, $action = null)
+    {
+        self::add('patch', $uri, $action = null);
+    }
+
+    // delete http method
+    public static function delete($uri, $action = null)
+    {
+        self::add('delete',$uri, $action = null);
+    }
+
+    //// return routes
     public static function routes()
     {
         return self::$routes;
