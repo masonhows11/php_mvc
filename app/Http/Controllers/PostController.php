@@ -1,7 +1,7 @@
 <?php
 
 
-namespace APP\Http\Controllers;
+namespace App\Http\Controllers;
 
 
 class PostController extends Controller

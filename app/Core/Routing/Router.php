@@ -14,6 +14,7 @@ class Router
     private $request;
     private $routes;
     private $current_route;
+    const BASE_CONTROLLER = 'App\Http\Controllers\\';
 
 
     public function __construct()
@@ -50,19 +51,21 @@ class Router
 
     public function run()
     {
-        # 405 : invalid request method
-        //        if($this->invalidRequest($this->request)){
-        //            $this->dispatch405();
-        //        }
+        try {
+            # 405 : invalid request method
+            //        if($this->invalidRequest($this->request)){
+            //            $this->dispatch405();
+            //        }
 
-
-        # 404 : uri not exist
-        if (is_null($this->current_route)) {
-            $this->dispatch404();
+            # 404 : uri not exist
+            if (is_null($this->current_route)) {
+                $this->dispatch404();
+            }
+            $this->dispatch($this->current_route);
+        } catch (\Exception $ex) {
+            return $ex->getMessage();
         }
-
-        $this->dispatch($this->current_route);
-
+        return null;
     }
 
     private function dispatch($current_route)
@@ -88,8 +91,19 @@ class Router
 
         # action : ['Controller','method']
         if (is_array($action)) {
-            $class_name = $action[0];
+            // find & make class of controller
+            $class_name = self::BASE_CONTROLLER . $action[0];
+            if (!class_exists($class_name)) {
+                throw new \Exception("Class $class_name Not Exists !");
+            }
+            $controller = new $class_name();
+            // find & call method of controller
+            // this is dynamic call of method
             $method_name = $action[1];
+            if (!method_exists($controller, $method_name)) {
+                throw new \Exception("Method $method_name Does Not Exists in $class_name !");
+            }
+            $controller->{$method_name}();
         }
 
 
