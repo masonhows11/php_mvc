@@ -34,6 +34,10 @@ class Router
         }
         return null;
     }
+    public function dispatch($patch)
+    {
+
+    }
 
     public function run()
     {
@@ -41,6 +45,9 @@ class Router
 
 
         # 404 : uri not exist
+        if(is_null($this->current_route)){
+            $this->dispatch('404.php');
+        }
 
 
         # action : null
@@ -50,7 +57,7 @@ class Router
 
 
         # action  : Controller@method
-        
+
 
         # action : ['Controller','method']
 
