@@ -98,11 +98,12 @@ class Router
             }
             $controller = new $class_name();
             // find & call method of controller
-            // this is dynamic call of method
+
             $method_name = $action[1];
             if (!method_exists($controller, $method_name)) {
                 throw new \Exception("Method $method_name Does Not Exists in $class_name !");
             }
+            // this is dynamic call of method
             $controller->{$method_name}();
         }
 
