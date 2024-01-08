@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Page one</title>
 </head>
-<body style="background-color: red">
+<body style="background-color: lightblue">
 
 </body>
 </html>

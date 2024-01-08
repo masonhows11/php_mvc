@@ -10,6 +10,7 @@ class PostController extends Controller
 
     public function index(){
         echo 'hi this index of post controller' . PHP_EOL;
+        view('pages.page_two');
     }
 
 
