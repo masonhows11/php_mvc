@@ -3,9 +3,11 @@
 
 use App\Core\Routing\Route;
 
-Route::get('/');
 
-Route::get('/post',['Controller','method']);
+Route::get('/null');
+Route::get('/',['Controller','index']);
+
+Route::get('/post',['Controller','index']);
 Route::get('/posts',function (){
     echo "list posts";
 });

@@ -9,7 +9,8 @@
 </head>
 <body style="background-color:lightblue">
 
-<div style="margin: auto">
+<div style="margin-top:250px">
+    <h1 style="text-align: center;color: tomato">404 !</h1>
     <h1 style="text-align: center">Page Not Found Fucker</h1>
 </div>
 
