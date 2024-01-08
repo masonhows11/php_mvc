@@ -37,7 +37,23 @@ class Router
 
     public function run()
     {
-            # 405 : invalid request method
+        # 405 : invalid request method
+
+
+        # 404 : uri not exist
+
+
+        # action : null
+
+
+        # action : closure
+
+
+        # action  : Controller@method
+        
+
+        # action : ['Controller','method']
+
 
     }
 }
