@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Core\Router;
+namespace App\Core\Routing;
 
 
 use App\Utilities\Url;
