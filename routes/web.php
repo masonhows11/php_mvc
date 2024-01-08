@@ -3,11 +3,11 @@
 
 use App\Core\Routing\Route;
 
+Route::get('/home');
+
 Route::get('/show/post',['Controller','method']);
 
-Route::get('/',function (){
-    echo "welcome to home";
-});
+
 
 Route::post('/store_post',function (){
     echo "store form";
