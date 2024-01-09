@@ -21,14 +21,22 @@ class Router
     {
         $this->request = new Request();
         $this->routes = Route::routes();
-        var_dump($this->routes);
         $this->current_route = $this->findRoute($this->request) ?? null;
         # run middleware
         $this->run_route_middleware();
     }
 
 
-    private function run_route_middleware(){
+    private function run_route_middleware()
+    {
+        $middleware = $this->current_route['middleware'];
+        foreach ($middleware as $middleware_class){
+            $middlewareObject = new $middleware_class;
+            // this handle() method define in our middleware class
+            // execute handle() method in our middleware class
+            $middlewareObject->handle();
+        }
+        die();
     }
 
     public function findRoute(Request $request)

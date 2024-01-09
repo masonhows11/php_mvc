@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 
 
 use App\Http\Middleware\Contract\MiddlewareInterface;
+use hisorange\BrowserDetect\Parser as Browser;
 
 class BlockIEMiddleware implements MiddlewareInterface
 {
@@ -14,6 +15,12 @@ class BlockIEMiddleware implements MiddlewareInterface
         // request is global type
         // global $request;
         // var_dump($request);
-        die('BlockIE');
+        // echo 'BlockIE'. '<br/>';
+
+        if (Browser::isDesktop()) {
+            if (Browser::isEdge()) {
+                die('You do not have access with this browser , IE Blocked');
+            }
+        }
     }
 }

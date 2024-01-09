@@ -3,6 +3,7 @@
 
 namespace App\Http\Middleware;
 
+use hisorange\BrowserDetect\Parser as Browser;
 use App\Http\Middleware\Contract\MiddlewareInterface;
 
 class BlockFireFoxMiddleware implements MiddlewareInterface
@@ -13,6 +14,12 @@ class BlockFireFoxMiddleware implements MiddlewareInterface
         // request is global type
         // global $request;
         // var_dump($request);
-        die('BlockFireFox');
+        if (Browser::isDesktop()) {
+            if (Browser::isFirefox()) {
+                die('You do not have access with this browser , FireFox Blocked');
+            }
+        }
+
+
     }
 }
