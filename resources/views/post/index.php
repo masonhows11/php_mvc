@@ -9,5 +9,8 @@
 </head>
 <body style="background-color: lightblue">
 
+
+<?php var_dump($tasks); ?>
+
 </body>
 </html>

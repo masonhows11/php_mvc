@@ -15,7 +15,8 @@ function random_element($array){
     return array_pop($array);
 }
 
-function view($path){
+function view($path,$data = []){
+    extract($data);
     $path = str_replace('.','/',$path);
     $view_full_path = BASE_PATH . "resources/views/$path.php";
     include_once $view_full_path;

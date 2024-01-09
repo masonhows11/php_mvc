@@ -10,7 +10,10 @@ class PostController extends Controller
 
     public function index()
     {
-        view('post.index');
+        $data = [
+            'tasks' => ['joe','joe','james','naeem','asma','sepideh','sara'],
+        ];
+        view('post.index',$data);
       //  echo 'Index in method post controller' . PHP_EOL;
 
     }
