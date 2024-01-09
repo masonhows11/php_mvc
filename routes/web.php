@@ -3,10 +3,11 @@
 
 use App\Core\Routing\Route;
 use App\Http\Middleware\BlockFireFoxMiddleware;
+use App\Http\Middleware\BlockIEMiddleware;
 
 
 Route::get('/null');
-Route::get('/',['HomeController','index'],[BlockFireFoxMiddleware::class]);
+Route::get('/',['HomeController','index'],[BlockFireFoxMiddleware::class,BlockIEMiddleware::class]);
 
 Route::get('/posts',['PostController','index']);
 Route::get('/post',['PostController','post']);
