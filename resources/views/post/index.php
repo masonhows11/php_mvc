@@ -5,12 +5,15 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>index post page</title>
+    <title><?=  $title ?? 'todo list' ?></title>
 </head>
 <body style="background-color: lightblue">
-
-
-<?php var_dump($tasks); ?>
+<ul>
+    <?php /** @var TYPE_NAME $tasks */
+    foreach ($tasks as $task ): ?>
+        <li><?= $task ?></li>
+    <?php endforeach; ?>
+</ul>
 
 </body>
 </html>
