@@ -12,7 +12,8 @@ class BlockIEMiddleware implements MiddlewareInterface
     public function handle()
     {
         // request is global type
-        global $request;
-        var_dump($request);
+        // global $request;
+        // var_dump($request);
+        die('BlockIE');
     }
 }
