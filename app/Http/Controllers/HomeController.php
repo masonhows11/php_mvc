@@ -9,7 +9,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        echo 'Hi From HomeController';
+        echo 'Hi From index HomeController';
     }
 
 }

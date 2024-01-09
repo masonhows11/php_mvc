@@ -9,29 +9,40 @@ class PostController extends Controller
 
 
     public function index(){
-        echo 'hi this index of post controller' . PHP_EOL;
+        echo 'Index in method post controller' . PHP_EOL;
         view('pages.page_two');
+    }
+
+    public function post()
+    {
+        echo 'Post in method Post controller' . PHP_EOL;
+        die();
     }
 
 
     public function create(){
-        echo 'hi this is delete of post controller' . PHP_EOL;
+        echo 'Create method post controller' . PHP_EOL;
+        die();
     }
 
     public function store(){
-        echo 'hi this is store of post controller' . PHP_EOL;
+        echo 'Store method post controller' . PHP_EOL;
+        die();
     }
 
-    public function edit($id){
-        echo 'hi this is edit of post controller' . PHP_EOL;
+    public function edit(){
+        echo 'Edit method post controller' . PHP_EOL;
+        die();
     }
 
     public function update($id){
-        echo 'hi this is update of post controller' . PHP_EOL;
+        echo 'update method post controller' . PHP_EOL;
+        die();
     }
 
     public function delete($id){
-        echo 'hi this is delete of post controller' . PHP_EOL;
+        echo 'Delete method post controller' . PHP_EOL;
+        die();
     }
 
 }
