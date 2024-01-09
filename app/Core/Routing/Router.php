@@ -23,7 +23,12 @@ class Router
         $this->routes = Route::routes();
         var_dump($this->routes);
         $this->current_route = $this->findRoute($this->request) ?? null;
+        # run middleware
+        $this->run_route_middleware();
+    }
 
+
+    private function run_route_middleware(){
     }
 
     public function findRoute(Request $request)
@@ -62,6 +67,8 @@ class Router
             if (is_null($this->current_route)) {
                 $this->dispatch404();
             }
+            # run middleware if exists
+
             $this->dispatch($this->current_route);
         } catch (\Exception $ex) {
             return $ex->getMessage();
