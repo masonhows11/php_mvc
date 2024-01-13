@@ -61,7 +61,7 @@ class Router
                 return false;
             }
             if ($this->regex_match_route_pattern($route)) {
-                return true;
+                return $route;
             }
         }
         return null;
