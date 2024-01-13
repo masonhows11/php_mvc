@@ -23,6 +23,16 @@ class PostController extends Controller
     {
         global $request;
         $slug = $request->get_route_param('slug');
+        echo "slug: $slug <br/>";
+        // nice_dump($request);
+        // view('post.post');
+        //        echo 'Post in method Post controller' . PHP_EOL;
+        //        die();
+    }
+    public function comment()
+    {
+        global $request;
+        $slug = $request->get_route_param('slug');
         $cid = $request->get_route_param('cid');
         echo "slug: $slug <br/> comment : $cid";
         // nice_dump($request);
@@ -30,6 +40,8 @@ class PostController extends Controller
         //        echo 'Post in method Post controller' . PHP_EOL;
         //        die();
     }
+
+
 
 
     public function create()
