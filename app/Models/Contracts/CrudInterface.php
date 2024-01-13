@@ -8,15 +8,12 @@ Interface CrudInterface{
 
     public function create(array $date) : int;
 
-    public function find(int $id) : object;
+    public function find($id) : object;
 
-    
-    public function read(array $columns) : array;
+    public function get(array $columns,array  $where) : array;
 
+    public function update(array $data,array  $where) : int;
 
-    public function update(array $data) : int;
-
-
-    public function delete(int $id) : int;
+    public function delete($id,array $where) : int;
     
 }
