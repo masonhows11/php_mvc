@@ -28,7 +28,8 @@ class Router
         //   $this->run_global_middleware();
     }
 
-    private function run_global_middleware(){
+    private function run_global_middleware()
+    {
         $global_middleware = new GlobalMiddleware();
         $global_middleware->handle();
     }
@@ -37,7 +38,7 @@ class Router
     private function run_route_middleware()
     {
         $middleware = $this->current_route['middleware'];
-        foreach ($middleware as $middleware_class){
+        foreach ($middleware as $middleware_class) {
             $middlewareObject = new $middleware_class;
             // this handle() method define in our middleware class
             // execute handle() method in our middleware class
@@ -59,15 +60,24 @@ class Router
             if (!in_array($request->getMethod(), $route['methods'])) {
                 return false;
             }
-            if($this->regex_match_route_pattern($route)){
-
+            if ($this->regex_match_route_pattern($route)) {
+                return true;
             }
         }
         return null;
     }
 
-    public function regex_match_route_pattern(){
+    public function regex_match_route_pattern($route)
+    {
+        // nice_dump($route);
+        // $route_pattern = '/^\/post\/(?<slug>[-%\w]+)$/';
+        $pattern = "/^" . str_replace(['/', '{', '}'], ['\/', '(?<', '>[-%\w]+)'], $route['uri']) . "$/";
+        $result = preg_match($pattern, $this->request->getUri(), $matches);
+        if (!$result) {
+            return false;
+        }
 
+        return true;
     }
 
     public function dispatch405()

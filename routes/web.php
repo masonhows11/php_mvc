@@ -11,6 +11,7 @@ Route::get('/',['HomeController','index'],[BlockFireFoxMiddleware::class,BlockIE
 
 Route::get('/posts',['PostController','index']);
 Route::get('/post',['PostController','post']);
+Route::get('/post/{slug}',['PostController','post']);
 
 
 Route::get('/create/post',['PostController','create']);
