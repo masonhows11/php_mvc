@@ -5,6 +5,7 @@ namespace App\Core\Routing;
 
 
 use App\Core\Request;
+use App\Http\Middleware\GlobalMiddleware;
 use App\Utilities\Url;
 
 class Router
@@ -23,7 +24,13 @@ class Router
         $this->routes = Route::routes();
         $this->current_route = $this->findRoute($this->request) ?? null;
         # run middleware
-        $this->run_route_middleware();
+        //  $this->run_route_middleware();
+        //   $this->run_global_middleware();
+    }
+
+    private function run_global_middleware(){
+        $global_middleware = new GlobalMiddleware();
+        $global_middleware->handle();
     }
 
 
@@ -42,12 +49,25 @@ class Router
     public function findRoute(Request $request)
     {
         // echo  $request->getMethod() . " " . $request->getUri();
+        //        foreach ($this->routes as $route) {
+        //            if (in_array($request->getMethod(), $route['methods']) && $request->getUri() == $route['uri']) {
+        //                return $route;
+        //            }
+        //        }
+        //        return null;
         foreach ($this->routes as $route) {
-            if (in_array($request->getMethod(), $route['methods']) && $request->getUri() == $route['uri']) {
-                return $route;
+            if (!in_array($request->getMethod(), $route['methods'])) {
+                return false;
+            }
+            if($this->regex_match_route_pattern($route)){
+
             }
         }
         return null;
+    }
+
+    public function regex_match_route_pattern(){
+
     }
 
     public function dispatch405()
