@@ -10,6 +10,7 @@ Route::get('/null');
 Route::get('/',['HomeController','index'],[BlockFireFoxMiddleware::class,BlockIEMiddleware::class]);
 
 Route::get('/posts',['PostController','index']);
+
 Route::get('/post',['PostController','post']);
 Route::get('/post/{slug}',['PostController','post']);
 Route::get('/post/{slug}/comment/{cid}',['PostController','comment']);

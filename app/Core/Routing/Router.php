@@ -89,7 +89,6 @@ class Router
     {
 
     }
-
     public function dispatch404()
     {
         header("HTTP/1.0 404 Not Found");
@@ -97,7 +96,6 @@ class Router
         view('errors.404');
         die();
     }
-
     public function run()
     {
         try {
@@ -149,7 +147,6 @@ class Router
             }
             $controller = new $class_name();
             // find & call method of controller
-
             $method_name = $action[1];
             if (!method_exists($controller, $method_name)) {
                 throw new \Exception("Method $method_name Does Not Exists in $class_name !");
