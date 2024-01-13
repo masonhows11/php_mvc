@@ -69,14 +69,19 @@ class Router
 
     public function regex_match_route_pattern($route)
     {
-        // nice_dump($route);
         // $route_pattern = '/^\/post\/(?<slug>[-%\w]+)$/';
+        global $request;
         $pattern = "/^" . str_replace(['/', '{', '}'], ['\/', '(?<', '>[-%\w]+)'], $route['uri']) . "$/";
         $result = preg_match($pattern, $this->request->getUri(), $matches);
         if (!$result) {
             return false;
         }
+        foreach ($matches as $key => $value) {
+            if (!is_int($key)) {
+                $request->add_route_param($key, $value);
 
+            }
+        }
         return true;
     }
 

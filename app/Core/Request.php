@@ -5,6 +5,7 @@ namespace App\Core;
 
 Class Request{
 
+    private $route_params;
     private $params;
     private $method;
     private $agent;
@@ -81,7 +82,21 @@ Class Request{
         header("Location: " . site_url($path));
         die();
     }
-    
 
-    
+    // for add parameters to route_params array
+    public function add_route_param($key,$value){
+        $this->route_params[$key] = $value;
+    }
+    // for get parameters from route_params array
+    public function get_route_param($key){
+       return  $this->route_params[$key];
+    }
+
+    // for get all parameters from route_params array
+    public function get_route_params(){
+        return  $this->route_params;
+    }
+
+
+
 }

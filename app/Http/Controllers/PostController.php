@@ -11,17 +11,22 @@ class PostController extends Controller
     public function index()
     {
         $data = [
-            'tasks' => ['joe','mason','james','naeem','asma','sepideh','sara'],
+            'tasks' => ['joe', 'mason', 'james', 'naeem', 'asma', 'sepideh', 'sara'],
             'title' => 'post index',
         ];
-        view('post.index',$data);
-      //  echo 'Index in method post controller' . PHP_EOL;
+        view('post.index', $data);
+        //  echo 'Index in method post controller' . PHP_EOL;
 
     }
 
     public function post()
     {
-        view('post.post');
+        global $request;
+        $slug = $request->get_route_param('slug');
+        $cid = $request->get_route_param('cid');
+        echo "slug: $slug <br/> comment : $cid";
+        // nice_dump($request);
+        // view('post.post');
         //        echo 'Post in method Post controller' . PHP_EOL;
         //        die();
     }
