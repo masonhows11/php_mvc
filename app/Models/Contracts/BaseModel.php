@@ -14,6 +14,7 @@ abstract class BaseModel implements CrudInterface
 
     protected function __construct()
     {
+
     }
 
     protected function getAttribute($key)

@@ -6,29 +6,37 @@ namespace App\Models\Contracts;
 
 class JsonBaseModel extends BaseModel
 {
+    private $base_path;
+
+    public function __construct()
+    {
+        $this->base_path = BASE_PATH . "database\jsondb";
+
+    }
 
     public function create(array $date): int
     {
-        // TODO: Implement create() method.
+      return  1;
     }
 
     public function find($id): object
     {
-        // TODO: Implement find() method.
+       // cast array to object
+       return (object)[];
     }
 
     public function get(array $columns, array $where): array
     {
-        // TODO: Implement get() method.
+       return [];
     }
 
     public function update(array $data, array $where): int
     {
-        // TODO: Implement update() method.
+       return  1;
     }
 
     public function delete($id, array $where): int
     {
-        // TODO: Implement delete() method.
+        return  1;
     }
 }
