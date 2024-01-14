@@ -49,6 +49,11 @@ class JsonBaseModel extends BaseModel
         return (object)[];
     }
 
+    public function getAll() :array
+    {
+        return  $this->read_json();
+    }
+
     public function get(array $columns, array $where): array
     {
         return [];
