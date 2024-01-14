@@ -19,14 +19,16 @@ class JsonBaseModel extends BaseModel
 
     private function write_json(array $new_data)
     {
+        // write data in to json file
         $data_json = json_encode($new_data);
         file_put_contents($this->table_file_path, (string)$data_json);
     }
 
     private function read_json(): array
     {
-        return json_decode(file_get_contents($this->table_file_path));
-
+        // read data from json file
+        $table_data = json_decode(file_get_contents($this->table_file_path));
+        return $table_data;
     }
 
     public function create(array $new_date): int
@@ -34,7 +36,7 @@ class JsonBaseModel extends BaseModel
         $table_data = $this->read_json();
         $table_data[] = $new_date;
         $this->write_json((array)$table_data);
-        return 1;
+        return $new_date[$this->primaryKey];
     }
 
     public function find($id): object
@@ -49,9 +51,9 @@ class JsonBaseModel extends BaseModel
         return (object)[];
     }
 
-    public function getAll() :array
+    public function getAll(): array
     {
-        return  $this->read_json();
+        return $this->read_json();
     }
 
     public function get(array $columns, array $where): array
