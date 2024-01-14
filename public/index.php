@@ -9,7 +9,7 @@ $new_user = [
 ];
 
 $user = new \App\Models\User();
-$user->create($new_user);
-
+//$user->create($new_user);
+var_dump($user->find(386));
 //$router = new \App\Core\Routing\Router();
 //$router->run();

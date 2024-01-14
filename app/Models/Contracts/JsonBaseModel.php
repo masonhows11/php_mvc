@@ -17,29 +17,34 @@ class JsonBaseModel extends BaseModel
     }
 
 
-    private function write_json(array $data)
+    private function write_json(array $new_data)
     {
-        $data_json = json_encode($data);
+        $data_json = json_encode($new_data);
         file_put_contents($this->table_file_path, (string)$data_json);
     }
 
-    private function read_json(array $data): array
+    private function read_json(): array
     {
-        $table_data = json_decode(file_get_contents($this->table_file_path));
-        return $table_data;
+        return json_decode(file_get_contents($this->table_file_path));
 
     }
 
-    public function create(array $date): int
+    public function create(array $new_date): int
     {
-        $table_data = $this->read_json($date);
-        $table_data[] = $date;
+        $table_data = $this->read_json();
+        $table_data[] = $new_date;
         $this->write_json((array)$table_data);
         return 1;
     }
 
     public function find($id): object
     {
+        $table_data = $this->read_json();
+        foreach ($table_data as $row) {
+            if ($row->{$this->primaryKey} == $id) {
+                return $row;
+            }
+        }
         // cast array to object
         return (object)[];
     }
