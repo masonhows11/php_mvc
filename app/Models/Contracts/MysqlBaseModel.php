@@ -76,14 +76,15 @@ class MysqlBaseModel extends BaseModel
 
     }
 
-    public function get(array $columns, array $where): array
-    {
-        return [];
-    }
-
     public function getAll(): array
     {
-        return [];
+        return $this->connection->select($this->table, '*');
+
+    }
+
+    public function get(array $columns, array $where = []): array
+    {
+        return $this->connection->select($this->table, $columns,$where);
     }
 
     public function update(array $data, array $where): int

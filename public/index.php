@@ -37,6 +37,20 @@ include "../bootstrap/bootstrap.php";
 // $result = $user->find(54);
 // var_dump(json_encode($result));
 
+//// done
+// $user = new \App\Models\User();
+// $result = $user->getAll();
+// var_dump($result);
+
+//// done
+// $user = new \App\Models\User();
+// $result = $user->get(['email','name'],[]);
+// var_dump($result);
+
+//// done
+// $user = new \App\Models\User();
+// $result = $user->get(['id','email','name','password'],['password[!]'=>null]);
+// var_dump($result);
 
 //////// test for product model
 // $product = new \App\Models\Product();
