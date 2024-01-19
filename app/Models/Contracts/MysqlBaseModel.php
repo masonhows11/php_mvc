@@ -71,7 +71,15 @@ class MysqlBaseModel extends BaseModel
     {
         $record_id = $this->{$this->primaryKey};
         return $this->delete([$this->primaryKey => $record_id]);
+    }
 
+    public function save(): int
+    {
+        // we set new value for specific properties
+        // and store in attributes[] array
+        // and set attributes[] array as $data for update user record
+        $record_id = $this->{$this->primaryKey};
+        return $this->update($this->attributes,[$this->primaryKey => $record_id]);
     }
 
     public function create(array $data): int
