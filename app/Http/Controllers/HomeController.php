@@ -41,18 +41,18 @@ class HomeController extends Controller
         //  $result = $user->remove();
         //  var_dump($result);
 
-
+        //// done
         //// for remove() model using chaining method
-        //   $result = (new User(10))->remove();
-        //    var_dump($result);
+        //  $result = (new User(10))->remove();
+        //  var_dump($result);
 
-
-        $user = new User(67);
-        $user->first_name = 'sara5532';
-        $user->last_name = 'soltany nejad';
-        $user->email = 'sara552@gmail.com';
-        $user->save();
-        echo $user->last_name . "<br/>";
+        //// done
+        //   $user = new User(67);
+        //  $user->first_name = 'sara5533';
+        //  $user->last_name = 'soltany nejad';
+        //  $user->email = 'sara5533@gmail.com';
+        // echo $user->save()->first_name;
+        // echo $user->last_name . "<br/>";
         // var_dump($user->getAttributes(),$user->last_name);
 
         echo 'Hi From index HomeController';
