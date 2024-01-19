@@ -52,6 +52,22 @@ include "../bootstrap/bootstrap.php";
 // $result = $user->get(['id','email','name','password'],['password[!]'=>null]);
 // var_dump($result);
 
+
+//// done
+// $user = new \App\Models\User();
+// $result = $user->get(['id','email','name','password'],['password[!]'=>null]);
+// var_dump($result);
+
+//// done
+// $user = new \App\Models\User();
+// $result = $user->update(['last_name'=>'james_last_name'],['id[>=]' => 41]);
+// var_dump($result);
+
+//// done
+//$user = new \App\Models\User();
+//$result = $user->delete(['id[>=]' => 70]);
+//var_dump($result);
+
 //////// test for product model
 // $product = new \App\Models\Product();
 // for ($i = 1 ; $i <= 20 ; $i++){

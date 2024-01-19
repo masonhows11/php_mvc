@@ -84,16 +84,18 @@ class MysqlBaseModel extends BaseModel
 
     public function get(array $columns, array $where = []): array
     {
-        return $this->connection->select($this->table, $columns,$where);
+        return $this->connection->select($this->table, $columns, $where);
     }
 
     public function update(array $data, array $where): int
     {
-
+        $result = $this->connection->update($this->table, $data, $where);
+        return $result->rowCount();
     }
 
-    public function delete($id, array $where): int
+    public function delete(array $where): int
     {
-
+        $result = $this->connection->delete($this->table, $where);
+        return $result->rowCount();
     }
 }
