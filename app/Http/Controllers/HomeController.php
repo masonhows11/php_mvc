@@ -12,7 +12,7 @@ class HomeController extends Controller
     public function index()
     {
 
-         header("Content-type: application/json; charset=utf-8");
+        // header("Content-type: application/json; charset=utf-8");
         //// done
         // $user = new User(10);
         // var_dump($user->getAttribute('email'));
@@ -48,11 +48,12 @@ class HomeController extends Controller
 
 
         $user = new User(67);
-        $user->first_name = 'sara5530';
-        $user->last_name = 'soltany';
-        $user->email = 'sara553@gmail.com';
+        $user->first_name = 'sara5532';
+        $user->last_name = 'soltany nejad';
+        $user->email = 'sara552@gmail.com';
         $user->save();
-        var_dump($user->getAttributes());
+        echo $user->last_name . "<br/>";
+        // var_dump($user->getAttributes(),$user->last_name);
 
         echo 'Hi From index HomeController';
     }

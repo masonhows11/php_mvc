@@ -31,11 +31,13 @@ abstract class BaseModel implements CrudInterface
         return $this->attributes;
     }
 
+    // for read or get property dont define in model
     public function __get($name)
     {
         return $this->getAttribute($name);
     }
 
+    // for set new value for property dont define in model
     public function __set($name, $value)
     {
         if (!array_key_exists($name, $this->attributes)) {
