@@ -2,20 +2,43 @@
 
 include "../bootstrap/bootstrap.php";
 
-//// test for user model
+////////// test for user model
 
-// $new_user = [
-//    "id" => rand(5,1000),
-//    "name" => "sara",
-//    "family" => "bahrami"
-// ];
+//// done
+//$new_user = [
+//    "name" => "sara_bahrami",
+//    "first_name" => "sara",
+//    "last_name" => "bahrami",
+//    "email" => "sara1_992@gmail.com",
+//    "password" => "123456",
+//];
 
+//// done
 // $user = new \App\Models\User();
-// $user->create($new_user);
+// $result = $user->create($new_user);
+// var_dump($result);
+
+//// done
+// $user = new \App\Models\User();
+// for ($i = 1 ; $i <= 20 ; $i++){
+//    $user->create([
+//        "name" => "user-$i",
+//        "first_name" => "user_first-$i",
+//        "last_name" => "user_last-$i",
+//        "email" => "userEmail$i@gmail.com",
+//        "password" => "123456-$i",
+//    ]);
+//}
 // var_dump($user->find(386));
 // var_dump($user->getAll());
 
-//// test for product model
+//// done
+// $user = new \App\Models\User();
+// $result = $user->find(54);
+// var_dump(json_encode($result));
+
+
+//////// test for product model
 // $product = new \App\Models\Product();
 // for ($i = 1 ; $i <= 20 ; $i++){
 //    $product->create([
