@@ -9,7 +9,7 @@ use PDO;
 class MysqlBaseModel extends BaseModel
 {
 
-    public function __construct( $id= null)
+    public function __construct($id = null)
     {
 
         // Connect the database.
@@ -62,9 +62,16 @@ class MysqlBaseModel extends BaseModel
         //            echo "an error happen during connection:" . $ex->getMessage();
         //        }
 
-        if(!is_null($id)){
+        if (!is_null($id)) {
             return $this->find($id);
         }
+    }
+
+    public function remove(): int
+    {
+        $record_id = $this->{$this->primaryKey};
+        return $this->delete([$this->primaryKey => $record_id]);
+
     }
 
     public function create(array $data): int
@@ -76,9 +83,13 @@ class MysqlBaseModel extends BaseModel
     public function find($id): object
     {
         $result = $this->connection->get($this->table, '*', [$this->primaryKey => $id]);
-        foreach ($result as $item => $value){
-            $this->attributes[$item] = $value;
-        }
+        if (is_null($result)) {
+            return (object)null;
+        } else
+            foreach ($result as $item => $value) {
+                $this->attributes[$item] = $value;
+            }
+        // $this keyword refer to an instance of current class that uses
         return $this;
 
     }

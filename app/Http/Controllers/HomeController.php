@@ -31,6 +31,19 @@ class HomeController extends Controller
         //  $user_name = (new User(10))->name;
         //  echo $user_name;
 
+        //// done
+        /// this is simple
+        /// this remove() method call on current user instance
+        /// that contain user info with id = 10
+        //  $user = new User(69);
+        //  $result = $user->remove();
+        //  var_dump($result);
+
+
+        //// for remove() model using chaining method
+        //   $result = (new User(10))->remove();
+        //    var_dump($result);
+
         echo 'Hi From index HomeController';
     }
 
