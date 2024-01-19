@@ -4,6 +4,10 @@ include "../bootstrap/bootstrap.php";
 
 ////////// test for user model
 
+$router = new \App\Core\Routing\Router();
+$router->run();
+
+
 //// done
 //$new_user = [
 //    "name" => "sara_bahrami",
@@ -79,5 +83,3 @@ include "../bootstrap/bootstrap.php";
 
 // var_dump($product->getAll());
 
-//$router = new \App\Core\Routing\Router();
-//$router->run();
